@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArriveAwake | Never Miss Your Stop Again</title>
+    <style>
+        :root {
+            --primary: #007AFF;
+            --accent: #FF3B30;
+            --bg: #0A0A0B;
+            --card-bg: rgba(28, 28, 30, 0.7);
+            --text-primary: #FFFFFF;
+            --text-secondary: #8E8E93;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px;
+            text-align: center;
+            background: radial-gradient(circle at top right, #1a1a2e 0%, #0a0a0b 100%);
+        }
+
+        .hero-image {
+            max-width: 400px;
+            width: 100%;
+            border-radius: 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            margin-bottom: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 1rem;
+            background: linear-gradient(to bottom, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 3rem;
+        }
+
+        /* Features */
+        .section {
+            padding: 100px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid var(--glass);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .card.critical h3 {
+            color: var(--accent);
+        }
+
+        /* Instructions */
+        .instruction-section {
+            background: #111;
+            border-radius: 40px;
+            padding: 60px;
+            margin-bottom: 40px;
+        }
+
+        .step-list {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 24px;
+            padding: 20px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+        }
+
+        .step-number {
+            background: var(--primary);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 1px solid var(--glass);
+            color: var(--text-secondary);
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .section { padding: 60px 20px; }
+            .instruction-section { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="marketing_hero.png" alt="ArriveAwake Interface" class="hero-image">
+        <h1>Commute with Confidence</h1>
+        <p class="tagline">The only transit alarm intelligent enough to wake you up when your signal disappears.</p>
+    </header>
+
+    <div class="section">
+        <h2 style="font-size: 2.5rem; text-align: center;">Why ArriveAwake?</h2>
+        <div class="grid">
+            <div class="card critical">
+                <h3>Signal Loss Failsafe</h3>
+                <p>Most GPS alarms fail in tunnels or subways. ArriveAwake detects signature signal loss patterns and triggers a safety alarm if you haven't moved, ensuring you never sleep through your stop in the deep.</p>
+            </div>
+            <div class="card">
+                <h3>Silent Switch Bypass</h3>
+                <p>Never miss an alert because you forgot to toggle your physical switch. ArriveAwake pipes audio through your system's media channel to bypass the silent switch for critical alerts.</p>
+            </div>
+            <div class="card">
+                <h3>Adaptive Profiles</h3>
+                <p>Standard commute? Use a gentle chime. Deep sleep on a long-distance train? Set a location-specific "Extreme" profile to ensure you wake up.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="instruction-section">
+            <h2 style="color: var(--primary);">Critical Setup Guide</h2>
+            <p>For ArriveAwake to monitor your location while your phone is in your pocket, please ensure these settings are enabled:</p>
+            <ul class="step-list">
+                <li class="step-item">
+                    <span class="step-number">1</span>
+                    <div>
+                        <strong>Location Access: "Always"</strong>
+                        <p>Go to Settings > ArriveAwake > Location. Choose "Always". This allows the app to wake you up even when it's in the background.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <span class="step-number">2</span>
+                    <div>
+                        <strong>Precise Location: "On"</strong>
+                        <p>In the same Location menu, verify "Precise Location" is enabled. This is critical for detecting stops that are close together.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <span class="step-number">3</span>
+                    <div>
+                        <strong>Background App Refresh</strong>
+                        <p>Ensure this is enabled in Settings > ArriveAwake so the app can continue monitoring your transit progress.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="instruction-section" style="background: transparent; border: 1px solid var(--glass);">
+            <h2 style="color: #fff;">Managing Locations</h2>
+            <ul class="step-list">
+                <li class="step-item">
+                    <div>
+                        <strong>Adding a Destination</strong>
+                        <p>Tap the "+" button, search for your stop, and set your desired alarm radius. Smaller for tight city stops, larger for long-distance arrivals.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div>
+                        <strong>Quick Reordering</strong>
+                        <p>Drag and drop your destinations on the home screen to organize your daily route. Tap the toggle to arm an alarm before you start your journey.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="privacy/">Privacy Policy</a>
+            <a href="terms/">Terms of Use</a>
+        </div>
+        <p>&copy; 2026 Chenglian Consulting. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
