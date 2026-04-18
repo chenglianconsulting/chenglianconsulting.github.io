@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,9 +46,9 @@
             max-width: 400px;
             width: 100%;
             border-radius: 40px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
             margin-bottom: 40px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         h1 {
@@ -123,7 +124,7 @@
             align-items: flex-start;
             margin-bottom: 24px;
             padding: 20px;
-            background: rgba(255,255,255,0.03);
+            background: rgba(255, 255, 255, 0.03);
             border-radius: 16px;
         }
 
@@ -160,16 +161,25 @@
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .section { padding: 60px 20px; }
-            .instruction-section { padding: 30px; }
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding: 60px 20px;
+            }
+
+            .instruction-section {
+                padding: 30px;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <header>
-        <img src="marketing_hero.png" alt="ArriveAwake Interface" class="hero-image">
+        <img src="Main-portrait.png" alt="ArriveAwake Interface" class="hero-image">
         <h1>Commute with Confidence</h1>
         <p class="tagline">The only transit alarm intelligent enough to wake you up when your signal disappears.</p>
     </header>
@@ -179,47 +189,67 @@
         <div class="grid">
             <div class="card">
                 <h3>Adaptive Battery Protection</h3>
-                <p>ArriveAwake intelligently scales its GPS usage. When you're 60km away, the app sleeps to save power, waking up more frequently only as you approach your stop. High-precision tracking only happens when it matters.</p>
+                <p>ArriveAwake intelligently scales its GPS usage. When you're 60km away, the app sleeps to save power,
+                    waking up more frequently only as you approach your stop. High-precision tracking only happens when
+                    it matters.</p>
             </div>
             <div class="card critical">
                 <h3>Signal Loss Failsafe</h3>
-                <p>Most GPS alarms fail in tunnels or subways. ArriveAwake detects signature signal loss patterns and triggers a safety alarm if you haven't moved, ensuring you never sleep through your stop in the deep.</p>
+                <p>Most GPS alarms fail in tunnels or subways. ArriveAwake detects signature signal loss patterns and
+                    triggers a safety alarm if you haven't moved, ensuring you never sleep through your stop in the
+                    deep.</p>
             </div>
             <div class="card">
                 <h3>Silent Switch Bypass</h3>
-                <p>Never miss an alert because you forgot to toggle your physical switch. ArriveAwake pipes audio through your system's media channel to bypass the silent switch for critical alerts.</p>
+                <p>Never miss an alert because you forgot to toggle your physical switch. ArriveAwake pipes audio
+                    through your system's media channel to bypass the silent switch for critical alerts.</p>
             </div>
             <div class="card">
                 <h3>Adaptive Profiles & Custom Audio</h3>
-                <p>Standard commute? Use a gentle chime. Heavy sleeper? Set a location-specific "Extreme" profile. <strong>Pro users</strong> can even import their own audio files to wake up to their favorite song or a custom voice recording.</p>
+                <p>Standard commute? Use a gentle chime. Heavy sleeper? Set a location-specific "Extreme" profile.
+                    <strong>Pro users</strong> can even import their own audio files to wake up to their favorite song
+                    or a custom voice recording.</p>
+                <img src="ArriveAwakePRO-portrait.png" alt="Pro Features" style="width: 100%; border-radius: 12px; margin-top: 15px; border: 1px solid rgba(255,255,255,0.1);">
             </div>
+        </div>
+    </div>
+
+    <div class="section" style="padding-top: 0;">
+        <h3 style="text-align: center; margin-bottom: 30px; color: var(--accent);">Reliable Alerts in Any Condition</h3>
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+            <img src="Arrived-portrait.png" alt="Arrival Alarm" style="max-width: 280px; width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+            <img src="SignalLost-portrait.png" alt="Signal Lost Alarm" style="max-width: 280px; width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
         </div>
     </div>
 
     <div class="section">
         <div class="instruction-section">
             <h2 style="color: var(--primary);">Critical Setup Guide</h2>
-            <p>For ArriveAwake to monitor your location while your phone is in your pocket, please ensure these settings are enabled:</p>
+            <p>For ArriveAwake to monitor your location while your phone is in your pocket, please ensure these settings
+                are enabled:</p>
             <ul class="step-list">
                 <li class="step-item">
                     <span class="step-number">1</span>
                     <div>
                         <strong>Location Access: "Always"</strong>
-                        <p>Go to Settings > ArriveAwake > Location. Choose "Always". This allows the app to wake you up even when it's in the background.</p>
+                        <p>Go to Settings > ArriveAwake > Location. Choose "Always". This allows the app to wake you up
+                            even when it's in the background.</p>
                     </div>
                 </li>
                 <li class="step-item">
                     <span class="step-number">2</span>
                     <div>
                         <strong>Precise Location: "On"</strong>
-                        <p>In the same Location menu, verify "Precise Location" is enabled. This is critical for detecting stops that are close together.</p>
+                        <p>In the same Location menu, verify "Precise Location" is enabled. This is critical for
+                            detecting stops that are close together.</p>
                     </div>
                 </li>
                 <li class="step-item">
                     <span class="step-number">3</span>
                     <div>
                         <strong>Notifications: "Allow"</strong>
-                        <p>When prompted, allow notifications. This ensures the app can trigger the loud alarm and wake you up even when your screen is locked.</p>
+                        <p>When prompted, allow notifications. This ensures the app can trigger the loud alarm and wake
+                            you up even when your screen is locked.</p>
                     </div>
                 </li>
             </ul>
@@ -231,19 +261,24 @@
                 <li class="step-item">
                     <div>
                         <strong>Adding a Destination</strong>
-                        <p>Tap the "+" button and search for your stop. Choose your alert radius and, most importantly, select your **Alarm Aggressiveness** (Normal for daily commutes, Extreme for deep sleepers).</p>
+                        <p>Tap the "+" button and search for your stop. Choose your alert radius and, most importantly,
+                            select your **Alarm Aggressiveness** (Normal for daily commutes, Extreme for deep sleepers).
+                        </p>
+                        <img src="AddNewAlarm-portrait.png" alt="Add Alarm Configuration" style="max-width: 300px; width: 100%; border-radius: 15px; margin-top: 15px; display: block; border: 1px solid rgba(255,255,255,0.1);">
                     </div>
                 </li>
                 <li class="step-item">
                     <div>
                         <strong>Modifying a Stop</strong>
-                        <p>Need to change your radius or alarm sound? Just tap on any saved destination in your list to re-open the configuration panel and make adjustments.</p>
+                        <p>Need to change your radius or alarm sound? Just tap on any saved destination in your list to
+                            re-open the configuration panel and make adjustments.</p>
                     </div>
                 </li>
                 <li class="step-item">
                     <div>
                         <strong>Removing a Stop</strong>
-                        <p>To delete a destination, simply swipe left on the location in your list and tap the "Delete" button. You can also drag and drop to reorder your most frequent stops.</p>
+                        <p>To delete a destination, simply swipe left on the location in your list and tap the "Delete"
+                            button. You can also drag and drop to reorder your most frequent stops.</p>
                     </div>
                 </li>
             </ul>
@@ -259,4 +294,5 @@
     </footer>
 
 </body>
+
 </html>
