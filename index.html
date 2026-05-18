@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chenglian Consulting | App Portfolio</title>
+    <style>
+        :root {
+            --primary: #007AFF;
+            --text-main: #1d1d1f;
+            --text-sub: #86868b;
+            --bg: #f5f5f7;
+            --border: #d2d2d7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        header {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: var(--text-sub);
+        }
+
+        .catalog {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        .app-row {
+            display: grid;
+            grid-template-columns: 100px 200px 1fr 160px;
+            align-items: center;
+            gap: 20px;
+            padding: 30px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .app-row:last-child {
+            border-bottom: none;
+        }
+
+        .app-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 16px;
+            object-fit: cover;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            display: block;
+        }
+
+        .app-name a {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .app-name a:hover {
+            text-decoration: underline;
+        }
+
+        .app-desc {
+            font-size: 15px;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .badge-col {
+            text-align: center;
+        }
+
+        .badge-col img {
+            height: 40px;
+            transition: transform 0.2s ease;
+        }
+
+        .badge-col img:hover {
+            transform: scale(1.05);
+        }
+
+        /* New class for Web App buttons to match App Store badge height */
+        .web-app-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;          /* Perfectly matches the App Store badge height */
+            padding: 0 24px;
+            background-color: #1d1d1f; /* Sleek Apple-style dark gray/black */
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 8px;    /* Matches typical App Store badge curve */
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
+
+        .web-app-btn:hover {
+            transform: scale(1.05);
+            background-color: #000000;
+        }
+        
+        /* Optional icon inside the web app button */
+        .web-app-btn svg {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+            fill: currentColor;
+        }
+      
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        @media (max-width: 750px) {
+            .app-row {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .app-icon {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Chenglian Consulting</h1>
+            <p class="subtitle">Innovative solutions for everyday challenges.</p>
+        </header>
+
+        <main class="catalog">
+
+            <!-- ArriveAwake -->
+            <div class="app-row">
+                <div class="icon-col">
+                    <a href="/ArriveAwake">
+                        <img src="/ArriveAwake/ArriveAwake.png" alt="ArriveAwake Icon" class="app-icon">
+                    </a>
+                </div>
+                <div class="app-name">
+                    <a href="/ArriveAwake">ArriveAwake</a>
+                </div>
+                <div class="app-desc">
+                    The intelligent transit alarm that wakes you up even when GPS signal is lost in tunnels. Features adaptive and extreme low battery consumption and silent-mode bypass.
+                </div>
+                <div class="badge-col">
+                    <a href="https://apps.apple.com/app/arriveawake/id6767873176" target="_blank">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1310688000&h=6791e812543e5140b9706346b08e2f81"
+                             alt="Download on the App Store">
+                    </a>
+                </div>
+            </div>
+
+            <!-- SecRadar -->
+            <div class="app-row">
+                <div class="icon-col">
+                    <a href="/SecRadar">
+                        <img src="/SecRadar/sec_radar_app_icon.png" alt="SecRadar Icon" class="app-icon">
+                    </a>
+                </div>
+                <div class="app-name">
+                    <a href="/SecRadar">SecRadar AI</a>
+                </div>
+                <div class="app-desc">
+                    An autonomous agentic platform designed for institutional financial analysts. It intelligently routes complex queries between quantitative Data Lakes and qualitative Knowledge Bases to decode SEC filings with precision.
+                </div>
+                <div class="badge-col">
+                    <a href="https://secradar.chenglianconsulting.com" class="web-app-btn" target="_blank">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                        Try Now
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Media Hub -->
+            <div class="app-row">
+                <div class="icon-col">
+                    <a href="/MediaHub">
+                        <img src="/MediaHub/agiera_mid.png" alt="Media Hub Icon" class="app-icon">
+                    </a>
+                </div>
+                <div class="app-name">
+                    <a href="/MediaHub">Podcast Intelligence Hub</a>
+                </div>
+                <div class="app-desc">
+                    My own personal AI news network to cover my entire day, fully automated daily: 🌅 7:00 AM (The "Brush Up"): 5-minute AI/Tech & World news while getting ready. 🚗 8:00 AM (Morning Commute): Overnight Market Brief bridging global financial gaps. 🚋 4:30 PM (Evening Commute): Post-market Recap catching the closing data. 🚿 7:00 PM (Wind Down): Geopolitical Updates for a deeper end-of-day perspective.
+                </div>
+                <div class="badge-col">
+                    <a href="https://media.agiera.work" class="web-app-btn" target="_blank">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                        Podcast Now
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Make 24 -->
+            <div class="app-row">
+                <div class="icon-col">
+                    <a href="/Make24">
+                        <img src="/Make24/make24.png" alt="ArriveAwake Icon" class="app-icon">
+                    </a>
+                </div>
+                <div class="app-name">
+                    <a href="/Make24">Make 24</a>
+                </div>
+                <div class="app-desc">
+                    Make 24 is more than just a math game—it is a cognitive workout designed to keep your brain sharp, engaged, and healthy. It combines logic, memory, and motor skills into quick, rewarding sessions.
+                </div>
+                <div class="badge-col">
+                    <a href="https://make24.chenglianconsulting.com" class="web-app-btn" target="_blank">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                        Play Now
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Add future apps here -->
+
+        </main>
+
+        <footer>
+            &copy; 2026 Chenglian Consulting. All rights reserved.
+        </footer>
+    </div>
+
+</body>
+</html>

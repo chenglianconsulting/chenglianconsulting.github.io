@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make 24 - A Game for the Active Mind</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f1f5f9;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #475569;
+            --primary: #0f172a;
+            --accent: #22c55e;
+            --accent-hover: #16a34a;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            margin: 0;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 0 0 0.5rem 0;
+            letter-spacing: -0.025em;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+            margin-bottom: 2rem;
+            border: 1px solid #e2e8f0;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 0;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+        }
+
+        li::marker {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .mental-health-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .benefit-item {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .benefit-item h3 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .benefit-item p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .cta-container {
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--accent);
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            border-radius: 9999px;
+            box-shadow: 0 10px 15px -3px rgb(34 197 94 / 0.4);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 14px 20px -3px rgb(34 197 94 / 0.5);
+        }
+
+        .hero-image {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInDown 0.8s ease-out 0.2s both;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Make 24</h1>
+            <p class="subtitle">The classic arithmetic puzzle, beautifully reimagined.</p>
+        </header>
+
+        <div class="hero-image">
+            <img src="make24-screen.jpg" alt="Make 24 Game Screenshot">
+        </div>
+
+        <div class="card">
+            <h2>📜 How to Play</h2>
+            <p><strong>The Goal:</strong> Use exactly four playing cards and basic arithmetic operators to create an
+                expression that equals <strong>24</strong>.</p>
+            <ul>
+                <li><strong>The Cards:</strong> You are dealt four cards. Numbers 2-10 are their face value. Aces are 1,
+                    Jacks are 11, Queens are 12, and Kings are 13.</li>
+                <li><strong>The Rules:</strong> You <em>must</em> use all four cards exactly once. You can use addition
+                    (+), subtraction (-), multiplication (×), division (÷), and parentheses to group numbers.</li>
+                <li><strong>The Catch:</strong> Sometimes, the four cards dealt are mathematically impossible to solve.
+                    If you correctly identify an impossible hand, you win the round!</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>🧠 Why Make 24 Promotes Mental Health</h2>
+            <p>Make 24 is more than just a math game—it is a cognitive workout designed to keep your brain sharp,
+                engaged, and healthy. It combines logic, memory, and motor skills into quick, rewarding sessions.</p>
+
+            <div class="mental-health-grid">
+                <div class="benefit-item">
+                    <h3>🧩 Active Planning</h3>
+                    <p>To succeed, you must think several steps ahead. If you construct an expression poorly and change
+                        your mind halfway through, you must clear the board and start over. This consequence trains the
+                        brain to visualize the entire solution before acting.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>⚡ Rapid Processing</h3>
+                    <p>Make 24 demands fast, fluid thinking. The built-in timer pushes you to quickly identify patterns,
+                        evaluate mathematical possibilities, and make decisions under gentle pressure, improving your
+                        cognitive processing speed.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>✋ Hand-Eye Coordination</h3>
+                    <p>Solving the puzzle isn't just mental; it requires physical execution. Quickly tapping the correct
+                        numbers and operators in sequence improves fine motor skills and reinforces the connection
+                        between thought and physical action.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>📈 Motivating Growth</h3>
+                    <p>The game tracks your personal best times and history. Rather than punishing failure, this
+                        historical data provides positive reinforcement, showing you tangible evidence of your cognitive
+                        improvement over time.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>🌟 Accessible to All Ages</h3>
+                    <p>Whether you are a student learning basic arithmetic or an adult looking to preserve mental
+                        acuity, the fundamental rules of addition and multiplication make this an evergreen
+                        brain-training tool for any generation.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-container">
+            <a href="https://make24.chenglianconsulting.com" class="cta-button" target="_blank"
+                rel="noopener noreferrer">
+                Start Playing Now ➜
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>
