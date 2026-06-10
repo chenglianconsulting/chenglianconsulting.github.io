@@ -1,1 +1,700 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Football Livescore 2026 - Unofficial Live Match Tracker</title>
+    <meta name="description" content="Stay connected to every kickoff, goal, and standings update for the 2026 summer tournament with widgets, local calendar sync, and spoiler protection.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(30, 41, 59, 0.6);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-neon: #00ff87; /* Pitch green */
+            --accent-blue: #00bfff; /* Sky blue */
+            --accent-glow: rgba(0, 255, 135, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Navigation */
+        header {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .logo-container svg {
+            width: 36px;
+            height: 36px;
+            fill: var(--accent-neon);
+            filter: drop-shadow(0 0 8px var(--accent-glow));
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--accent-neon);
+        }
+
+        nav {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent-neon);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            max-width: 1200px;
+            margin: 40px auto 80px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+                margin-bottom: 40px;
+            }
+            nav {
+                display: none;
+            }
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-top: 0;
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+            background: linear-gradient(135deg, #ffffff 30%, var(--accent-neon) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @media (max-width: 600px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            max-width: 580px;
+        }
+
+        @media (max-width: 900px) {
+            .hero-content p {
+                margin: 0 auto 30px auto;
+            }
+        }
+
+        /* App Store Button */
+        .app-store-btn {
+            display: inline-flex;
+            align-items: center;
+            background: #000000;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 12px 24px;
+            text-decoration: none;
+            color: white;
+            gap: 12px;
+            transition: transform 0.2s, border-color 0.2s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .app-store-btn:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-neon);
+        }
+
+        .app-store-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .btn-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.1;
+        }
+
+        .btn-text .download {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
+        .btn-text .store {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        /* Live Score Tracker Mockup (Right Hero) */
+        .mockup-container {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .live-activity-mock {
+            width: 100%;
+            max-width: 380px;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 50px rgba(0, 255, 135, 0.1);
+            backdrop-filter: blur(20px);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .mock-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .mock-live-badge {
+            background: rgba(0, 255, 135, 0.15);
+            color: var(--accent-neon);
+            border: 1px solid var(--accent-neon);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+
+        .mock-scoreboard {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .mock-team {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            width: 30%;
+        }
+
+        .mock-flag {
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+
+        .mock-team-name {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-main);
+        }
+
+        .mock-score {
+            font-size: 2.5rem;
+            font-weight: 800;
+            font-family: monospace;
+            color: var(--text-main);
+            letter-spacing: -1px;
+        }
+
+        .mock-divider {
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            font-weight: 300;
+        }
+
+        .mock-events {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 16px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mock-event {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .mock-event span.time {
+            color: var(--accent-neon);
+            font-weight: 700;
+        }
+
+        /* Countdown Widget */
+        .countdown-container {
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            max-width: 450px;
+        }
+
+        @media (max-width: 900px) {
+            .countdown-container {
+                margin: 30px auto 0 auto;
+            }
+        }
+
+        .countdown-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .countdown-timer {
+            display: flex;
+            gap: 12px;
+        }
+
+        .time-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 60px;
+        }
+
+        .time-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-neon);
+        }
+
+        .time-label {
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        /* Features Section */
+        .features-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-top: 0;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-neon) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 255, 135, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 255, 135, 0.05);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 255, 135, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--accent-neon);
+        }
+
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Disclaimer Section */
+        .disclaimer-section {
+            max-width: 900px;
+            margin: 80px auto;
+            padding: 30px;
+            background: rgba(30, 41, 59, 0.3);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .disclaimer-section h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-neon);
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .disclaimer-section p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-neon);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <a href="#" class="logo-container">
+            <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" />
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" stroke-width="1.5" fill="none" />
+                <path d="M2 12h20" stroke="currentColor" stroke-width="1.5" />
+            </svg>
+            <div class="logo-text">Global Football<span>2026</span></div>
+        </a>
+        <nav>
+            <a href="#features">Features</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Your Ultimate Unofficial 2026 Match Tracker</h1>
+            <p>Stay connected to every goal, kickoff, and standing update for the upcoming world tournament. Engineered with native widgets, local calendar integrations, and customizable alert rules for dedicated football fans.</p>
+            
+            <a href="https://apps.apple.com/app/idYOUR_APP_ID" class="app-store-btn">
+                <svg viewBox="0 0 24 24">
+                    <path d="M18.71,19.5C17.88,20.74,17,21.95,15.66,22c-1.34,0-1.76-.82-3.31-.82S10.37,22,9.09,22C7.75,22,6.77,20.74,5.93,19.5c-1.72-2.49-3-7-1.28-10,0.85-1.5,2.4-2.4,4.07-2.4,1.27,0,2.48.88,3.26,0.88s2-.88,3.49-0.88a4.19,4.19,0,0,1,3.26,1.75,4.1,4.1,0,0,0-2.49,3.75,4.07,4.07,0,0,0,2.52,3.75C18.25,17.43,18.71,18.5,18.71,19.5M15.9,4.16a4,4,0,0,0,1-2.91,4,4,0,0,0-2.61,1.35,3.84,3.84,0,0,0-1,2.83A3.56,3.56,0,0,0,15.9,4.16Z"/>
+                </svg>
+                <div class="btn-text">
+                    <span class="download">Download on the</span>
+                    <span class="store">App Store</span>
+                </div>
+            </a>
+
+            <!-- Countdown Widget -->
+            <div class="countdown-container">
+                <div class="countdown-title">TOURNAMENT KICKOFF IN</div>
+                <div class="countdown-timer" id="countdown">
+                    <div class="time-block">
+                        <span class="time-value" id="days">00</span>
+                        <span class="time-label">Days</span>
+                    </div>
+                    <div class="time-block">
+                        <span class="time-value" id="hours">00</span>
+                        <span class="time-label">Hrs</span>
+                    </div>
+                    <div class="time-block">
+                        <span class="time-value" id="minutes">00</span>
+                        <span class="time-label">Mins</span>
+                    </div>
+                    <div class="time-block">
+                        <span class="time-value" id="seconds">00</span>
+                        <span class="time-label">Secs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Simulated Scoreboard Mockup -->
+        <div class="mockup-container">
+            <div class="live-activity-mock">
+                <div class="mock-header">
+                    <span>Group Stage • Group A</span>
+                    <span class="mock-live-badge">Live 67'</span>
+                </div>
+                <div class="mock-scoreboard">
+                    <div class="mock-team">
+                        <span class="mock-flag">🇺🇸</span>
+                        <span class="mock-team-name">USA</span>
+                    </div>
+                    <div class="mock-score">2</div>
+                    <div class="mock-divider">:</div>
+                    <div class="mock-score">1</div>
+                    <div class="mock-team">
+                        <span class="mock-flag">🇨🇴</span>
+                        <span class="mock-team-name">Colombia</span>
+                    </div>
+                </div>
+                <div class="mock-events">
+                    <div class="mock-event">
+                        <span>⚽ C. Pulisic (USA)</span>
+                        <span class="time">14'</span>
+                    </div>
+                    <div class="mock-event">
+                        <span>⚽ L. Díaz (COL)</span>
+                        <span class="time">43'</span>
+                    </div>
+                    <div class="mock-event">
+                        <span>⚽ F. Balogun (USA)</span>
+                        <span class="time">59'</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="section-header">
+            <h2>Engineered For Football Enthusiasts</h2>
+            <p>Experience the tournament with modern iOS features designed to put live match information at your fingertips.</p>
+        </div>
+        <div class="features-grid">
+            
+            <!-- Widget & Live Activity Feature -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+                    </svg>
+                </div>
+                <h3>Live Activities & Widgets</h3>
+                <p>Keep track of live match timelines, goals, and game-minute indicators directly on your Lock Screen and Dynamic Island without launching the application.</p>
+            </div>
+
+            <!-- Calendar Sync Feature -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" />
+                    </svg>
+                </div>
+                <h3>Calendar Synchronization</h3>
+                <p>Instantly sync the entire 104-match schedule, or only your favorite teams' matches, directly to your device's native iOS Calendar app with resilient container fallbacks.</p>
+            </div>
+
+            <!-- Local Timezone Feature -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm3.3 14.3L11 12.5V7h1.5v4.78l3.72 2.22-.73 1.3z" />
+                    </svg>
+                </div>
+                <h3>Smart Timezone Conversion</h3>
+                <p>Easily toggle kickoff times and match schedules between your device's current timezone and the local timezone of the host stadium in the USA, Canada, and Mexico.</p>
+            </div>
+
+            <!-- Roster & Spoiler Control Feature -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                    </svg>
+                </div>
+                <h3>Spoilers & Rosters Lookup</h3>
+                <p>Protect completed match scores using tap-to-reveal filters, browse complete 26-man squads, look up stadium venue schedules, and query key player biography profiles.</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Compliance Disclaimer Section -->
+    <section class="disclaimer-section">
+        <h3>Disclaimer</h3>
+        <p>This is an unofficial fan-made utility application. It is not affiliated with, endorsed by, or associated with FIFA, CONCACAF, UEFA, CONMEBOL, or any official soccer association. All country flags, team names, stadium names, and player details are utilized strictly for informational reference purposes under standard fair use guidelines. No official tournament trademark names, logos, or brand assets are used within this product.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="copyright">&copy; 2026 Cheng Lian. All rights reserved.</div>
+        <div class="footer-links">
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+    </footer>
+
+    <!-- Countdown Timer Script -->
+    <script>
+        function updateCountdown() {
+            // World Cup Kickoff is June 11, 2026 (12:00:00 UTC)
+            const targetDate = new Date("June 11, 2026 12:00:00 UTC").getTime();
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference < 0) {
+                document.getElementById("countdown").innerHTML = "<div style='color: var(--accent-neon); font-weight: 800; font-size: 1.1rem; letter-spacing: 0.5px;'>TOURNAMENT IN PROGRESS!</div>";
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = String(days).padStart(2, '0');
+            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+        }
+
+        // Run immediately and update every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+
+</html>
